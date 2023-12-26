@@ -1,0 +1,162 @@
+@use "../abstracts/functions.scss" as f;
+@use "../abstracts/colors.scss";
+
+/*HEADER*/
+/********/
+header {
+    margin-top: f.rem(70px);
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    margin-top: f.rem(50px);
+    text-align: center;
+}
+
+h1 {
+    font-size: f.rem(26px);
+    color: var(--color-main-euca);
+    letter-spacing: f.rem(2px);
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+h1 span {
+    color: var(--color-white);
+}
+
+p {
+    margin-top: f.rem(30px);
+    color: var(--color-light-grey);
+    line-height: f.rem(30px);
+}
+
+.music-icons {
+    margin-top: f.rem(30px);
+    max-width: f.rem(500px);
+    display: flex;
+    justify-content: space-around;
+    opacity: 0.5;
+}
+
+.music-icons img {
+    width: f.rem(75px);
+    height: f.rem(25px);
+    object-fit: contain;
+}
+
+form {
+    margin-top: f.rem(60px);
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    color: var(--color-white);
+    background-color: var(--color-mid-grey);
+    padding: f.rem(15px) f.rem(25px);
+    border-radius: f.rem(48px);
+    border: none;
+    font-weight: 700;
+    font-size: f.rem(16px);
+}
+
+button {
+    margin-top: f.rem(20px);
+    padding: f.rem(15px) f.rem(25px);
+    border: none;
+    border-radius: f.rem(48px);
+    background-color: var(--color-main-euca);
+    font-weight: 700;
+    font-size: f.rem(16px);
+}
+
+small {
+    color: #FB3E3E;
+}
+
+@media (width > 37.5em) {
+    header {
+        justify-content: left;
+        margin-left: f.rem(24px);
+    }
+
+    main {
+        padding: f.rem(53px) f.rem(24px) f.rem(93px);
+        margin-top: f.rem(100px);
+        max-width: f.rem(650px);
+        text-align: initial;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-dark-blue);
+    }
+
+    h1 {
+        font-size: f.rem(40px);
+
+        & br {
+            display: none;
+        }
+    }
+
+    p {
+        max-width: f.rem(450px);
+    }
+
+    .music-icons {
+        margin-top: f.rem(60px);
+        max-width: none;
+        order: 4;
+    }
+
+    .music-icons img {
+        width: f.rem(120px);
+        height: f.rem(40px);
+    }
+
+    form {
+        position: relative;
+    }
+
+    input {
+        margin-right: f.rem(160px);
+    }
+
+    button {
+        position: absolute;
+        top: f.rem(-15px);
+        right: f.rem(165px);
+        padding: f.rem(10px) f.rem(20px);
+
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: var(--color-euca-light);
+        }
+    }
+
+    small {
+        position: absolute;
+        bottom: f.rem(-30px);
+        left: f.rem(25px);
+    }
+}
+
+@media (width > 71.25em) {
+    header {
+        margin-top: f.rem(120px);
+    }
+
+    main {
+        margin-top: f.rem(50px);
+        padding-left: f.rem(70px);
+        padding-right: f.rem(30px);
+        max-width: f.rem(750px);
+    }
+
+    h1 {
+        font-size: f.rem(48px);
+    }
+  }

@@ -1,0 +1,110 @@
+@use "../abstracts/functions" as f;
+@use "../abstracts/colors";
+
+/**************************/
+/* Tweaking Text Level Styles: strike-through */
+/**************************/
+
+del, s {
+  text-decoration: line-through;
+}
+
+mark::before, mark::after, del::before, del::after, ins::before, ins::after, s::before, s::after {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+s::before {
+  content: ' [strike-through start] ';
+}
+s::after {
+  content: ' [strike-through end] ';
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+/**************************/
+/* Body */
+/**************************/
+
+body {
+    padding: f.rem(0.1px) f.rem(25px);
+    font-size: f.rem(18px);
+    font-family: 'Chivo', sans-serif;
+    background-color: var(--color-dark-blue);
+    font-weight: 200;
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-image: url('./assets/mobile/image-host.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        inset: 0;
+        z-index: -1;
+        opacity: 0.1;
+    }
+
+    // height: 100%;
+    
+    // display: grid;
+    // place-content: center;
+}
+
+/**************************/
+/* Main */
+/**************************/
+
+@media (width > 37.5em) {
+  body {
+    &::before {
+      background-image: url('./assets/tablet/image-host.jpg');
+      background-size: initial;
+      background-position: top right;
+      opacity: 1;
+    }
+
+    &::after {
+      content: "";
+      background-image: url('./assets/desktop/bg-pattern-dots.svg');
+      background-repeat: no-repeat;
+      width: f.rem(232px);
+      height: f.rem(104px);
+      position: absolute;
+      margin-top: f.rem(70px);
+    }
+  }
+}
+
+@media (width > 71.25em) {
+  body {
+    max-width: f.rem(1274px);
+    margin-inline: auto;
+
+    &::before {
+      background-image: url('./assets/desktop/image-host.jpg');
+      background-position: right;
+    }
+
+    &::after {
+      right: 0;
+      bottom: 11%;
+    }
+  }
+}
+
